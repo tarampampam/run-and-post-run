@@ -21,6 +21,10 @@ inputs:
   post-shell:
     description: A shell to use for executing post commands. Defaults to value of shell input
     required: false
+  disable-command-trace:
+    description: Disable command trace for run and post commands
+    required: false
+    default: 'false'
 
 runs:
   using: node20

@@ -50,13 +50,14 @@ More examples can be found in the [tests](./.github/workflows/tests.yml).
 
 The following inputs can be used as `step.with` keys:
 
-| Name                |        Type        | Default | Required | Description                                                                |
-|---------------------|:------------------:|:-------:|:--------:|----------------------------------------------------------------------------|
-| `run`               | `string` or `list` |         |    no    | A commands that needs to be run in place                                   |
-| `post`              | `string` or `list` |         |   yes    | A commands that needs to be run once a workflow job has ended              |
-| `working-directory` |      `string`      |         |    no    | A working directory from which the command needs to be run                 |
-| `shell`             |      `string`      | `bash`  |    no    | A shell to use for executing `run` commands                                |
-| `post-shell`        |      `string`      |         |    no    | A shell to use for executing `post` commands. Defaults to value of `shell` |
+| Name                    |        Type        | Default | Required | Description                                                                |
+|-------------------------|:------------------:|:-------:|:--------:|----------------------------------------------------------------------------|
+| `run`                   | `string` or `list` |         |    no    | A commands that needs to be run in place                                   |
+| `post`                  | `string` or `list` |         |   yes    | A commands that needs to be run once a workflow job has ended              |
+| `working-directory`     |      `string`      |         |    no    | A working directory from which the command needs to be run                 |
+| `shell`                 |      `string`      | `bash`  |    no    | A shell to use for executing `run` commands                                |
+| `post-shell`            |      `string`      |         |    no    | A shell to use for executing `post` commands. Defaults to value of `shell` |
+| `disable-command-trace` |     `boolean`      | `false` |    no    | Disable command trace for `run` and `post` commands                        |
 
 ## Releasing
 

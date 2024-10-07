@@ -9,6 +9,7 @@ const input = {
   workingDirectory: core.getInput('working-directory'),
   shell: core.getInput('shell'),
   postShell: core.getInput('post-shell'),
+  disableCommandTrace: core.getBooleanInput('disable-command-trace'),
 }
 
 export async function run() {
@@ -62,7 +63,12 @@ async function runCommands(commands, shell) {
   return (async () => {
     for (const command of commands) {
       if (command && command.trim() !== '') {
-        core.info(`\x1b[1m$ ${command}\x1b[0m`)
+        core.debug(`input: ${JSON.stringify(input)}`)
+
+        // make this behavior default in the next major version
+        if (!input.disableCommandTrace) {
+          core.info(`\x1b[1m$ ${command}\x1b[0m`)
+        }
 
         const exitCode = shell === ''
           ? await exec.exec(command, [], options)

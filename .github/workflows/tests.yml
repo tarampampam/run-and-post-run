@@ -137,3 +137,12 @@ jobs:
         with:
           run: echo "Use job.status variable to check the job status (success, failure or cancelled)"
           post: if [ "${{ job.status }}" = "success" ]; then echo "Test passed"; else exit 1; fi
+
+      - name: Disable command trace
+        uses: ./
+        with:
+          post: |
+            echo "::group::Group logs"
+            echo "This is a group"
+            echo "::endgroup::"
+          disable-command-trace: 'true'
